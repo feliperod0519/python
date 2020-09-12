@@ -1,1 +1,13 @@
 test-file
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin https://github.com/feliperod0519/python.git
+git push -u origin master
+
+git remote add origin https://github.com/feliperod0519/python.git
+git branch -M master
+git push -u origin master
+
+
