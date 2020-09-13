@@ -10,4 +10,7 @@ git remote add origin https://github.com/feliperod0519/python.git
 git branch -M master
 git push -u origin master
 
+#C:\Users\Carlos-FelipeRodrigu\AppData\Local\Programs\Python\Python36
+#pip install virtualenv
 
+code-runner.runInTerminal
