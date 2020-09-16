@@ -1,5 +1,20 @@
 import argparse
 
+def get_args():
+    parser = argparse.ArgumentParser(description="Crow's nest -- chose the correct article",
+                                     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument('word', metavar='word', help='A word')
+    return parser.parse_args()
+
+def main():
+    args = get_args()
+    word = args.word
+    article = 'an' if word[0].lower() in 'aeiou' else 'a'
+    print(f'Ahoy, Captain, {article} {word} off the larboard bow!')
+
+if __name__ == '__main__':
+    main()
+
 # word = 'narwhal'
 # word[0]  --> 'n'
 # 'narwhal'[0] --> 'n'
@@ -39,5 +54,6 @@ import argparse
 #'Ahoy, Captain, {} {} off the larboard bow!'.format(article, word)
 #f'Ahoy, Captain, {article} {word} off the larboard bow!'
 
-#Juan Andres
-#test
+#Positional:parser.add_argument('word', metavar='word', help='Word')
+
+#word[0] in 'aeiouAEIOU'
