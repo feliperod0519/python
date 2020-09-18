@@ -1,5 +1,6 @@
 import argparse
 import os
+import re
 
 def get_args():
     parser = argparse.ArgumentParser('Apple and bananas', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -23,8 +24,16 @@ def main():
         new_text = method2()
     elif method == 3:
         new_text = method3()
-    elif method4 == 4:
+    elif method == 4:
         new_text = method4()
+    elif method == 5:
+        new_text = method5()
+    elif method == 6:
+        new_text = method6()
+    elif method == 7:
+        new_text = method7()
+    elif method == 8:
+        new_text = method8()
     else:
         new_text = []
         for char in text:
@@ -74,6 +83,35 @@ def method4():
     text = [vowel if c in 'aeiou' else vowel.upper() if c in 'AEIOU' else c for c in args.text]
     return ''.join(text)
 
+def method5():
+    args = get_args()
+    vowel = args.vowel
+    def new_char(c):
+        return vowel if c in 'aeiou' else vowel.upper() if c in 'AEIOU' else c
+    text = ''.join([new_char(c) for c in args.text])
+    return text
+
+def method6():
+    args = get_args()
+    vowel = args.vowel
+    text = map(lambda c: vowel if c in 'aeiou' else vowel.upper() if c in 'AEIOU' else c, args.text)
+    return ''.join(text)
+
+def method7():
+    args = get_args()
+    vowel = args.vowel
+    def new_char(c):
+        return vowel if c in 'aeiou' else vowel.upper() if c in 'AEIOU' else c
+    return ''.join(map(new_char,args.text))
+
+def method8():
+    args = get_args()
+    vowel = args.vowel
+    text = args.text
+    text = re.sub('[aeiou]', vowel, text)
+    text = re.sub('[AEIOU]', vowel.upper(), text)
+    return text
+
 if __name__ == '__main__':
     main()
 
@@ -86,3 +124,25 @@ if __name__ == '__main__':
 #h_letters = [ letter for letter in 'human' ]
 #print( h_letters) --> ['h', 'u', 'm', 'a', 'n']
 #Syntax: [expression for item in list]
+
+#Map
+#def calculateSquare(n):
+#    return n*n
+#numbers = (1, 2, 3, 4)
+#result = map(calculateSquare, numbers)
+#print(result)
+
+#Map w. lambda
+#numbers = (1, 2, 3, 4)
+#result = map(lambda x: x*x, numbers)
+#print(result)
+
+#One line if statement
+#<condition> ? <expression1> : <expression2> ===> <expression1> if <condition> else <expression2>
+#age=15
+#print('kid' if age<18 else 'adult') ---> 'kid'
+
+#import re
+#pattern = '[aeiou]'
+#vowel = 'o'
+#re.sub(pattern,vowel,'Apples and bananas!')
