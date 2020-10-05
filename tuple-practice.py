@@ -75,5 +75,24 @@ def main():
     for name in ('John', 'Kate'):
         print("Hello", name)
 
+    #11
+    print(testFunction(1,2,3,4))
+    #12
+    print(myfunc('Hello'))
+
+def testFunction(*args):
+    return [i for i in args if i%2 == 0]
+
+def myfunc(s):
+    i=0
+    news = ''
+    while i<len(s):
+        if i % 2 == 0:
+          news += s[i].upper()
+        else:
+          news += s[i].lower()
+        i+=1
+    return news
+
 if __name__ == '__main__':
     main()

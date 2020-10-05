@@ -76,6 +76,7 @@ def main():
     print(my_list10)
 
     #11
+    print('#11')
     my_list11 = ['p','r','o','b','l','e','m']
     my_list11[2:3] = []
     print(my_list11)
